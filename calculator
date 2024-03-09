@@ -1,0 +1,40 @@
+namespace calculator
+{
+    class Program3
+    {
+        static void Main(string[] args)
+        {
+            int num;
+            int num2;
+            string request;
+            int result;
+            
+            Console.WriteLine("welcome to calculator");
+            
+            Console.WriteLine("enter number");
+            num = Convert.ToInt32(Console.ReadLine());
+            //Console.WriteLine(num);
+            
+            Console.WriteLine("enter number2");
+            num2 = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("enter operation; a, s");
+            request = Console.ReadLine();
+
+            if (request == "a")
+            {
+                result = num + num2;
+                Console.WriteLine(result);
+            }
+            else if (request == "s")
+            {
+                result = num - num2;
+                Console.WriteLine(result);
+            }
+            else
+            {
+                Console.WriteLine("invalid number");
+            }
+        }
+    }
+}
