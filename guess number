@@ -1,0 +1,45 @@
+using System;
+
+namespace guess_number
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            /*int numb;
+            Random random = new Random();
+            numb = random.Next(1, 5);
+            
+            Console.WriteLine(numb);*/
+            bool isCorrect = true;
+            Random random = new Random();
+            int randomnum = random.Next(1, 11);
+            
+            Console.WriteLine("number between 1 and 10 will be generated");
+            Console.WriteLine(randomnum);
+            
+            while (isCorrect)
+            {
+                Console.WriteLine("enter guess number");
+                int guess = Convert.ToInt32(Console.ReadLine());
+
+                if (guess > randomnum)
+                {
+                    Console.WriteLine("your guess is high");
+                }
+                else if (guess < randomnum)
+                {
+                    Console.WriteLine("your gusess is low");
+                }
+                else
+                {
+                    Console.WriteLine("correct");
+                    isCorrect = false;
+                }
+            }
+            
+            Console.WriteLine("you win");
+
+        }
+    }
+}
