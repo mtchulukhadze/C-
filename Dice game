@@ -1,0 +1,41 @@
+// Dice game
+
+namespace Dice_game
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int playerRandom;
+            int player2Random;
+            Random random = new Random();
+            
+            
+            for (int i = 0; i < 10; i += 1)
+            {
+                Console.WriteLine("enter any key to start dice");
+
+                Console.ReadLine();
+                
+                playerRandom = random.Next(1, 7);
+                Console.WriteLine("you rolled " + playerRandom);
+
+                player2Random = random.Next(1, 7);
+                Console.WriteLine("computer roll " + player2Random);
+
+                if (playerRandom > player2Random)
+                {
+                    Console.WriteLine("player random win");
+                }
+                else if (playerRandom == player2Random)
+                {
+                    Console.WriteLine("numbers are equal");
+                }
+                else
+                {
+                    Console.WriteLine("computer random win");
+                }
+            }
+        }
+    }
+}
