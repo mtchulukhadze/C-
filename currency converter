@@ -1,0 +1,42 @@
+
+namespace CurrencyTempConverter
+{
+    class program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("enter c for currency converter, t for temperature converter: ");
+            string answer = Console.ReadLine();
+
+            if (answer == "c")
+            {
+                Console.WriteLine("You selected currency converter");
+                Console.WriteLine("enter 'a' to convert from gel to usd");
+                string choice = Console.ReadLine();
+
+                if (choice == "a")
+                {
+                    Console.WriteLine("enter gel");
+                    double gel = double.Parse(Console.ReadLine());
+                    double usd = gel / 2.65;
+                    
+                    Console.WriteLine("converted amount is:" + usd);
+                }
+            }
+            else 
+            {
+                Console.WriteLine("You selected temperature converter");
+                Console.WriteLine("enter 'a' to convert from c to f");
+                string choice = Console.ReadLine();
+
+                if (choice == "a")
+                {
+                    Console.WriteLine("enter celsius");
+                    int c = int.Parse(Console.ReadLine());
+                    int f = c / 2; 
+                    Console.WriteLine("converted farengait is:" + f);
+                }
+            }
+        }
+    }
+}
