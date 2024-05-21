@@ -1,0 +1,38 @@
+using System;
+
+public class Example2
+{
+    public static void Main(string[] args)
+    {
+        int num1 = 5;
+        int num2 = 7;
+
+        int sum = AddNumbers(num1, num2);
+
+        Console.WriteLine($"The sum of {num1} and {num2} is: {sum}");
+
+        int factorialOfNum1 = Factorial(num1);
+        Console.WriteLine($"The factorial of {num1} is: {factorialOfNum1}");
+
+        var calc = Calculator.dividenums(num1, num2);
+        Console.WriteLine(calc);
+    }
+
+    public static int AddNumbers(int a, int b)
+    {
+        return a + b;
+    }
+
+    public static int Factorial(int n)
+    {
+        if (n == 0)
+            return 1;
+
+        int result = 1;
+        for (int i = 1; i <= n; i++)
+        {
+            result *= i;
+        }
+        return result;
+    }
+}
