@@ -1,0 +1,57 @@
+using System;
+
+namespace ConsoleApp1
+{
+    public class ToDo_List
+    {
+        static void Main(string[] args)
+        {
+            // Console.WriteLine("hello");
+            List<string> taskList = new List<string>();
+            string option = "";
+
+            while (option != "e")
+            {
+                Console.WriteLine("create command");
+                Console.WriteLine("Enter 1 to add task");
+                Console.WriteLine("Enter 2 to remove task");
+                Console.WriteLine("Enter 3 to view the list");
+                Console.WriteLine("Enter e to exit");
+
+                option = Console.ReadLine();
+
+                if (option == "1")
+                {
+                    Console.WriteLine("Enter Task To add");
+                    string task = Console.ReadLine();
+                    taskList.Add(task);
+                    Console.WriteLine("Task added to The List");
+                }
+                else if (option == "2")
+                {
+                    Console.WriteLine("Enter to Remove Task");
+                    int task = Convert.ToInt32(Console.ReadLine());
+                    taskList.RemoveAt(task);
+                }
+                else if (option == "3")
+                {
+                    for(int i = 0; i < taskList.Count; i++)
+                    {
+                        Console.WriteLine(taskList[i]);
+                    }
+                    /*int i = 0;
+                    while (i < taskList.Count)
+                    {
+                        Console.WriteLine(taskList[i]);
+                        i++;
+                    }*/
+                    // Console.WriteLine(taskList);
+                }
+                else
+                {
+                    Console.WriteLine("end program");
+                }
+            }
+        }
+    }
+}
