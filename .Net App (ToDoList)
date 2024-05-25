@@ -1,0 +1,69 @@
+using System;
+using System.Data;
+using System.Windows.Forms;
+
+namespace WindowsFormsApp1
+{
+    public partial class ToDoList : Form
+    {
+        public ToDoList()
+        {
+            InitializeComponent();
+        }
+
+        DataTable todolist = new DataTable();
+        bool isEditing = false;
+        private void ToDoList_Load(object sender, EventArgs e)
+        {
+            //create columns
+            todolist.Columns.Add("Title");
+            todolist.Columns.Add("Description");
+
+            // DataSource
+            dataGridView.DataSource = todolist;
+        }
+
+        private void NewButton_Click(object sender, EventArgs e)
+        {
+            titleTextBox.Text = "";
+            Description.Text = "";
+        }
+
+        private void EditButton_Click(object sender, EventArgs e)
+        {
+            isEditing = true;
+            // fill text fields with data
+            titleTextBox.Text = todolist.Rows[dataGridView.CurrentCell.RowIndex].ItemArray[0].ToString();
+            Description.Text = todolist.Rows[dataGridView.CurrentCell.RowIndex].ItemArray[1].ToString();
+        }
+
+        private void delete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                todolist.Rows[dataGridView.CurrentCell.RowIndex].Delete();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("error" + ex);
+            }
+        }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            if (isEditing)
+            {
+                todolist.Rows[dataGridView.CurrentCell.RowIndex]["Title"] = titleTextBox.Text;
+                todolist.Rows[dataGridView.CurrentCell.RowIndex]["Description"] = Description.Text;
+            }
+            else
+            {
+                todolist.Rows.Add(titleTextBox.Text, Description.Text);
+            }
+            // clear
+
+            titleTextBox.Text = "";
+            Description.Text = "";
+        }
+    }
+}
