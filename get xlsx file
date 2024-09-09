@@ -1,0 +1,29 @@
+
+//run this command in c# directory dotnet add package EPPlus
+
+using System;
+using System.IO;
+using OfficeOpenXml;
+
+class Program
+{
+    static void Main()
+    {
+        var filepath = @"D:\Data\mysql\Exploring Data in SQL\Online Retail.xlsx";
+        
+        using (var package = new ExcelPackage(new FileInfo(filepath)))
+        {
+            var worksheet = package.Workbook.Worksheets[0];
+
+            for (int row = 1; row <= worksheet.Dimension.End.Row; row++)
+            {
+                for (int col = 1; col <= worksheet.Dimension.End.Column; col++)
+                {
+                    var cellValue = worksheet.Cells[row, col].Text;
+                    Console.Write($"{cellValue}\t");
+                } 
+                Console.WriteLine();
+            }
+        }
+    }
+}
