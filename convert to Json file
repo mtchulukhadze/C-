@@ -1,0 +1,25 @@
+//dotnet add package Newtonsoft.Json
+
+using System;
+using Newtonsoft.Json;
+
+namespace Json
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var Person = new Person { name = "mikheil", age = 26 };
+
+            string json = JsonConvert.SerializeObject(Person);
+
+            Console.WriteLine(json);
+        }
+
+        class Person
+        {
+            public string name { get; set; }
+            public int age { get; set; }
+        }
+    }
+}
