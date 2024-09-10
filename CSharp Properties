@@ -1,0 +1,66 @@
+
+
+namespace Properties
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Person obj = new Person();
+
+            obj.name = "mikheil";
+            obj.value_l = 5;
+            obj.changesalary();
+            
+            Console.WriteLine(obj.name);
+            Console.WriteLine(obj.value_l);
+            Console.WriteLine(obj.salary);
+            
+             
+        }
+    }
+
+    class Person
+    {
+        private string _name;
+        private int val;
+        private int _salary = 1000;
+
+        public string name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                _name = value;
+            }
+        }
+
+        public int value_l
+        {
+            get
+            {
+                return val;
+            }
+            set
+            {
+                val = value;
+            }
+        }
+
+        public int salary
+        {
+            get
+            {
+                return _salary;
+            }
+        }
+
+        public void changesalary()
+        {
+            _salary = salary + 1000;
+        }
+    }
+}
