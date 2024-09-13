@@ -1,6 +1,7 @@
-﻿
+
 
 using System;
+using System.Threading;
 
 public class cardHolder
 {
@@ -118,11 +119,8 @@ public class cardHolder
         Console.WriteLine("welcome to ATM");
         Console.WriteLine("Enter your cardNumber");
 
-        Console.WriteLine("enter your pin");
-
         string debidcardnum = "";
         cardHolder currentUser;
-
 
         while (true)
         {
@@ -132,7 +130,7 @@ public class cardHolder
                 // check it this data exists in database
 
                 currentUser = cardHolders.FirstOrDefault(a => a.cardNum == debidcardnum);
-                if(currentUser != null)
+                if (currentUser != null)
                 {
                     break;
                 }
@@ -147,6 +145,15 @@ public class cardHolder
             }
         }
 
+        for (int i=0; i <= 10; i++)
+        {
+            Console.Write("* ");
+            Thread.Sleep(250);
+        }
+        Console.WriteLine();
+
+        Console.WriteLine("enter your pin");
+
         int userPin = 0;
         while (true)
         {
@@ -156,7 +163,7 @@ public class cardHolder
                 // check it pin is correct
 
                 currentUser = cardHolders.FirstOrDefault(a => a.pin == userPin);
-                if(currentUser != null)
+                if (currentUser != null)
                 {
                     break;
                 }
@@ -165,11 +172,20 @@ public class cardHolder
                     Console.WriteLine("pin is not correct");
                 }
             }
-            catch 
+            catch
             {
                 Console.WriteLine("pin is not correct");
             }
         }
+
+        for (int i = 0; i <= 10; i++)
+        {
+            Console.Write("* ");
+            Thread.Sleep(250);
+        }
+        Console.WriteLine();
+
+       
 
         Console.WriteLine($"Hello {currentUser.getFirstname()}");
 
@@ -183,6 +199,7 @@ public class cardHolder
 
             if(int.Parse(input) == 1)
             {
+
                 deposit(currentUser);
             }
             else if(double.Parse(input) == 2)
